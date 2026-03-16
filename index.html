@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مسابقة المعلومات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="screen-setup" class="screen active">
+    <div class="card-ui">
+        <h1>🏆 مسابقة التحدي </h1>
+        <input type="text" id="name1" placeholder="اسم الفريق الأول">
+        <input type="text" id="name2" placeholder="اسم الفريق الثاني">
+        <button class="btn-primary" onclick="showCats()">دخول المسابقة</button>
+    </div>
+</div>
+
+<div id="screen-cats" class="screen">
+    <div class="card-ui">
+        <h2>اختر 5 أقسام للجولة</h2>
+        <div id="cats-list" class="cats-grid"></div>
+        <button id="start-round-btn" class="btn-primary" disabled onclick="startGame()">تأكيد وبدء اللعب</button>
+    </div>
+</div>
+
+<div id="screen-game" class="screen">
+    <header class="game-header">
+        <div id="team1-box" class="team-card">
+            <h3 id="display-n1">فريق 1</h3>
+            <div id="score1" class="score-val">0</div>
+            <div class="perks">
+                <button id="double1" class="perk" onclick="usePerk('double')">تدبيل</button>
+                <button id="wheel1" class="perk" onclick="usePerk('wheel')">عجلة</button>
+                <button id="half1" class="perk" onclick="usePerk('half')">نصف</button>
+            </div>
+        </div>
+
+        <button class="settings-btn" onclick="toggleMenu()">⚙️</button>
+
+        <div id="team2-box" class="team-card">
+            <h3 id="display-n2">فريق 2</h3>
+            <div id="score2" class="score-val">0</div>
+            <div class="perks">
+                <button id="double2" class="perk" onclick="usePerk('double')">تدبيل</button>
+                <button id="wheel2" class="perk" onclick="usePerk('wheel')">عجلة</button>
+                <button id="half2" class="perk" onclick="usePerk('half')">نصف</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="board" class="game-board"></main>
+</div>
+
+<div id="q-modal" class="modal-overlay">
+    <div class="modal-body">
+        <h1 id="q-text"></h1>
+        <div id="ans-btns">
+            <button class="btn-ans correct" onclick="submitAns(true)">صح ✅</button>
+            <button class="btn-ans wrong" onclick="submitAns(false)">خطأ ❌</button>
+        </div>
+        <h2 id="a-text" class="hidden-ans"></h2>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
